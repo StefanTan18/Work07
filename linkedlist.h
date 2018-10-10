@@ -1,4 +1,4 @@
-struct node { int i; struct node *next };
+struct node { int i; struct node *next; };
 
 void print_list(struct node *n);
 

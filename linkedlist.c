@@ -4,8 +4,10 @@
 #include "linkedlist.h"
 
 void print_list(struct node *n){
-  while (n->next){
-    printf(%d, n->i);
+  struct node *current = n;
+  while (current){
+    printf("%d ", current->i);
+    current = current->next;
   }
 }
 
@@ -17,8 +19,11 @@ struct node * insert_front(struct node *n, int x){
 }
 
 struct node * free_list(struct node *n){
-  while (n->next){
-    free(n.next);
+  while (n){
+    struct node *next = n->next;
+    free(n);
+    n = next;
   }
+  free(n);
   return n;
 }
